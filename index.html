@@ -1,63 +1,162 @@
-<!-- Unit 12 Project
+<!-- Unit 12 + 13 Project
 Requirements
-[  ] $() Select by Element, ID AND Class 
-[  ] Use Three Different jQuery Methods 
-[  ] Add Five CSS Declarations
-[  ] Include Three Images
+[ X ] Two Interactive Drop-down Inputs 
+[ X ] Two Different jQuery Animation Methods 
+[ X ] Add Five CSS Declarations
+[ X ] Include Three Images
+[ X ] $() Select by Element, ID AND Class 
+[ X ] Use Three Different jQuery Methods 
 
-Select ONE Additional 
-[ no ] Feature 1 - Use .addClass() method
+
+Select TWO Additional Features to Add  
+[ yes ] Feature 1 - Google Font
+[ no ] Feature 2 - Upload a Font
+[ no ] Feature 3 - .mouseover() Method
+[ no ] Feature 4 - :hover Feature 
+[ no ] Feature 5 - Add an Additional Interactive Drop-down
+[ yes ] Feature 1 - Use .addClass() method
 [ no ] Feature 2 - Use a variable in javaScript 
 [ no ] Feature 3 - Use .mouseover() method
 [ no ] Feature 4 - Use .show() method
 [ no ] Feature 5 - Use .append() method
 -->
 
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Unit 12 Project</title>
+    <title>Unit 13 Project</title>
+
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <button id="mem1-button">Memory #1</button>
-    <button id="mem2-button">Memory #2</button>
-    <button id="mem3-button">Memory #3</button>
-    <h1>My Top 3 Memories of <span>This Year</span></h1>
-    <ol>
-      <li>
-        <h3 id="mem1">Memory #1</h3>
-        <p>More about this memory.</p>
-      </li>
+    <center>
+      <h1>BLAH BLAH BLAH</h1>
+      <h2>Zhao, Emily (wait...that's not right?)</h2>
+    </center>
+    <hr />
+    <!-- Movie Question -->
+    <form id="movie-form">
+      <label>
+        🎥 Two of my favorite movies:
+        <select id="movie-answer">
+          <option value="movie1">Scott Pilgrim vs. The World</option>
+          <option value="movie2">Lady Bird</option>
+        </select>
+      </label>
+      <button type="submit">Why?</button>
+      <img
+        id="scott"
+        src="https://m.media-amazon.com/images/M/MV5BNTA5ZWMwNmYtNWI1ZS00NDRlLTkxNzktMzdhZDU2ZDhjNDJmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        width="209"
+      />
+      <img
+        id="lady"
+        src="https://m.media-amazon.com/images/M/MV5BNjk5MzcyOWQtNzE1Mi00NzdmLTlkM2QtOTdjZThhMDc2Y2NjXkEyXkFqcGc@._V1_.jpg"
+        width="200"
+      />
+    </form>
+    <div id="movie-result"></div>
+    <hr />
+    <!-- Book Question -->
+    <form id="book-form">
+      <label>
+        📖 Two of my favorite books:
+        <select id="book-answer">
+          <option value="book1">Turtles All the Way Down</option>
+          <option value="book2">
+            Aristotle and Dante Discover the Secrets of the Universe
+          </option>
+        </select>
+      </label>
+      <button type="submit">Why?</button>
 
-      <li>
-        <h3 id="mem2">Memory #2</h3>
-        <p>More about this memory.</p>
-      </li>
-
-      <li>
-        <h3 id="mem3">Memory #3</h3>
-        <p>More about this memory</p>
-      </li>
-    </ol>
-
+      <img
+        id="turtle"
+        src="https://m.media-amazon.com/images/I/81WjXknkN4L.jpg"
+      />
+      <img
+        id="ari"
+        src="https://prodimage.images-bn.com/pimages/9781442408937_p0_v10_s1200x630.jpg"
+      />
+    </form>
+    <div id="book-result"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-      $("#mem1-button").click(function () {
-        $("#mem1").css("color", "purple");
+      
+      $("h1").text("Some of My Favorite Things!");
+      $("h2").addClass("name");
+      $(".name").html("<em>Emily Zhao</em>");
+
+      //Scott image
+      $("#scott").hide();
+
+      //Lady image
+      $("#lady").hide();
+
+      //Turtle image
+      $("#turtle").hide();
+
+      //Ari image
+      $("#ari").hide();
+
+      //Movie Question jQuery Code
+      $("#movie-form").on("submit", function (event) {
+        event.preventDefault();
+
+        var $answer = $("#movie-answer");
+        var answer = $answer.val();
+
+        if (answer === "movie1") {
+          $("#movie-result").text(
+            "Because it has really fun and wacky editing; plus, I love the comedy."
+          );
+          $("#scott").slideDown(2000);
+        } else {
+          $("#movie-result").text(
+            "Because it shows a really nuanced relationship between a mother and daughter."
+          );
+          $("#lady").slideDown(2000);
+        }
       });
 
-      $("#mem2-button").click(function () {
-        $("#mem2").css("color", "blue");
-      });
+      //Book Question jQuery Code
+      $("#book-form").on("submit", function (event) {
+        event.preventDefault();
 
-      $("#mem3-button").click(function () {
-        $("#mem3").css("color", "green");
+        var $answer = $("#book-answer");
+        var answer = $answer.val();
+
+        if (answer === "book1") {
+          $("#book-result").text(
+            "Because it was one of the first books I ever read that I really related to (also I love John Green)."
+          );
+          $("#turtle").animate(
+            {
+              width: "200px",
+            },
+            2000
+          );
+        } else {
+          $("#book-result").text(
+            "Because one of my best friends recommended this book to me and it brought us closer together. Also, it's just a good book anyway. "
+          );
+          $("#ari").animate(
+            {
+              width: "200px",
+            },
+            2000
+          );
+        }
       });
     </script>
   </body>
-</html>
 
-<!--- Taken From Khan Academy HTML/JS: Making webpages interactive with jQuery-->
+  <!--- Taken From Khan Academy HTML/JS: Making webpages interactive with jQuery-->
+</html>
