@@ -1,14 +1,38 @@
-@import url("https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Delius&family=Poetsen+One&display=swap");
-
-html {
-  background-color: white;
-  padding-left: 20px;
-}
-
-img{
-  border-radius: 30px;
+body {
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal;
+  background: lightblue;
+  background-image: url("https://rockymountaindecals.com/cdn/shop/products/blue-gingham-wallpaper-peel-stick-849723.png?v=1666799064");
 }
 
 h1 {
-  font-family: "Poetsen One", sans-serif;
+  color: darkblue;
+}
+
+.name {
+  color: blue;
+}
+
+#movie-result {
+  background: rgb(244, 98, 181);
+  border: 5px solid pink;
+  font-size: 24px;
+  height: 160px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#book-result {
+  background: rgb(196, 159, 255);
+  border: 5px solid lavender;
+  font-size: 24px;
+  height: 160px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+hr {
+  height: 5px;
+  background-color: black;
 }
